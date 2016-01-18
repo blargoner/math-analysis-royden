@@ -3,6 +3,18 @@
 \documentclass[letterpaper,12pt]{article}
 \usepackage{amsmath,amssymb,amsthm,enumitem,fourier}
 
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Gd}{G_{\delta}}
+\newcommand{\Fs}{F_{\sigma}}
+
+\newcommand{\union}{\cup}
+\newcommand{\sect}{\cap}
+\newcommand{\bigunion}{\bigcup}
+\newcommand{\bigsect}{\bigcap}
+
+\newcommand{\len}{l}
+\newcommand{\mo}{m^*}
+
 % Theorems
 \theoremstyle{plain}
 \newtheorem*{prop}{Proposition}
@@ -23,6 +35,20 @@
 
 \section*{Introduction}
 This document contains notes and exercises from~\cite{royden}.
+
+\section*{Chapter~3}
+\begin{prop}[5]
+Given any \(A\subseteq\R\) and any \(\epsilon>0\), there is an open set~\(O\) such that \(A\subseteq O\) and \(\mo O\le\mo A+\epsilon\). There is a \(G\in\Gd\) such that \(A\subseteq G\) and \(\mo A=\mo G\).
+\end{prop}
+\begin{proof}
+If \(\mo A=\infty\), take \(O=G=\R\). If \(\mo A<\infty\), there is a countable set~\(\{I_n\}\) of open intervals with \(A\subseteq\bigunion I_n\) and \(\sum\len(I_n)<\mo A+\epsilon\). Let \(O=\bigunion I_n\). Then \(O\)~is open (Proposition~2.7), \(A\subseteq O\), and
+\[\mo O\le\sum\mo I_n=\sum\len(I_n)<\mo A+\epsilon\]
+by countable subadditivity (Proposition~2) and the outer measure of intervals (Proposition~1).
+
+For each~\(n\ge 1\), let \(O_n\)~be open with \(A\subseteq O_n\) and \(\mo O_n\le\mo A+1/n\). Let \(G=\bigsect O_n\). Then \(G\in\Gd\) and \(A\subseteq G\). By monotonicity, \(\mo A\le\mo G\) and
+\[\mo G\le\mo O_n\le\mo A+1/n\]
+for all \(n\ge 1\), so \(\mo A=\mo G\).
+\end{proof}
 
 % References
 \begin{thebibliography}{0}

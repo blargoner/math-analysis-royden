@@ -16,10 +16,12 @@
 \newcommand{\len}{l}
 \newcommand{\mo}{m^*}
 
+\newcommand{\comp}[1]{\widetilde{#1}}
 \newcommand{\closure}[1]{\overline{#1}}
 
 % Theorems
 \theoremstyle{plain}
+\newtheorem*{lem}{Lemma}
 \newtheorem*{prop}{Proposition}
 
 \theoremstyle{definition}
@@ -40,6 +42,7 @@
 This document contains notes and exercises from~\cite{royden}.
 
 \section*{Chapter~3}
+\subsection*{Section~2}
 \begin{prop}[5]
 Given any \(A\subseteq\R\) and any \(\epsilon>0\), there is an open set~\(O\) such that \(A\subseteq O\) and \(\mo O\le\mo A+\epsilon\). There is a \(G\in\Gd\) such that \(A\subseteq G\) and \(\mo A=\mo G\).
 \end{prop}
@@ -77,6 +80,35 @@ If \(\mo A=0\), then \(\mo(A\union B)=\mo B\).
 \end{exer}
 \begin{proof}
 We have \(\mo B\le\mo(A\union B)\le\mo A+\mo B=\mo B\).
+\end{proof}
+
+\subsection*{Section~3}
+We provide an alternative proof of Lemma~7.
+\begin{lem}[7]
+If \(E_1,E_2\subseteq\R\) are measurable, so is~\(E_1\union E_2\).
+\end{lem}
+\begin{proof}
+Let \(A\subseteq\R\). We first claim\footnote{This is an inclusion-exclusion inequality for outer measure.}
+\[\mo(A\sect[E_1\union E_2])+\mo(A\sect E_1\sect E_2)\le\mo(A\sect E_1)+\mo(A\sect E_2)\tag{1}\]
+Indeed, since \(A\sect(E_1\union E_2)=(A\sect E_1\sect E_2)\union(A\sect E_1\sect\comp{E_2})\union(A\sect\comp{E_1}\sect E_2)\),
+\[\mo(A\sect[E_1\union E_2])\le\mo(A\sect E_1\sect E_2)+\mo(A\sect E_1\sect\comp{E_2})+\mo(A\sect\comp{E_1}\sect E_2)\]
+by subadditivity, so
+\begin{align*}
+\mo(A\sect[E_1\union E_2])+\mo(A\sect E_1\sect E_2)&\le\mo([A\sect E_1]\sect E_2)+\mo([A\sect E_1]\sect\comp{E_2})\\
+	&\ +\mo([A\sect E_2]\sect E_1)+\mo([A\sect E_2]\sect\comp{E_1})\\
+	&=\mo(A\sect E_1)+\mo(A\sect E_2)
+\end{align*}
+by measurability of \(E_1\)~and~\(E_2\), establishing~(1).
+
+We now claim \(\mo(A\sect[E_1\union E_2])+\mo(A\sect[\comp{E_1\union E_2}])\le\mo A\). If \(\mo A=\infty\), there is nothing to prove, so we assume \(\mo A<\infty\). We have
+\begin{align*}
+\mo(A\sect[E_1\union E_2])+\mo(A\sect\comp{E_1}\sect\comp{E_2})+\mo A&\le\mo(A\sect[E_1\union E_2])+\mo(A\sect E_1\sect E_2)\\
+	&\ +\mo(A\sect[\comp{E_1}\union\comp{E_2}])+\mo(A\sect\comp{E_1}\sect\comp{E_2})\\
+	&\le\mo(A\sect E_1)+\mo(A\sect E_2)\\
+	&\ +\mo(A\sect\comp{E_1})+\mo(A\sect\comp{E_2})\\
+	&=\mo A+\mo A
+\end{align*}
+where the first inequality follows from \(A=(A\sect E_1\sect E_2)\union(A\sect[\comp{E_1}\union\comp{E_2}])\) and subadditivity, the second inequality follows from~(1), and the equality follows from measurability of \(E_1\)~and~\(E_2\). The claim now follows since \(\mo A<\infty\). Since \(A\)~was arbitrary, \(E_1\union E_2\)~is measurable.
 \end{proof}
 
 % References

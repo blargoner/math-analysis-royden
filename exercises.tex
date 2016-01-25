@@ -159,6 +159,55 @@ so there is~\(N\) with \(\mo O-\sum_{n=1}^N\mo I_n<\epsilon/2\). Let \(U=\biguni
 \end{align*}
 \end{proof}
 
+\begin{exer}[9]
+If \(E\subseteq\R\) is measurable, then \(E+y\)~is measurable.
+\end{exer}
+\begin{proof}
+Let \(A\subseteq\R\). Then\footnote{We write \(A\sect B+y\) for \((A\sect B)+y\).}
+\begin{align*}
+A\sect(E+y)&=(A-y)\sect E+y\\
+A\sect(\comp{E+y})&=(A-y)\sect\comp{E}+y
+\end{align*}
+For example, if \(z\in A\sect(E+y)\), then \(z\in A\) and \(z=x+y\) with \(x\in E\), hence \(z-y=x\in(A-y)\sect E\), and \(z=(z-y)+y\in(A-y)\sect E+y\). Now
+\begin{align*}
+\mo(A\sect[E+y])+\mo(A\sect[\comp{E+y}])&=\mo([A-y]\sect E+y)+\mo([A-y]\sect\comp{E}+y)\\
+	&=\mo([A-y]\sect E)+\mo([A-y]\sect\comp{E})\\
+	&=\mo(A-y)\\
+	&=\mo A
+\end{align*}
+where the second and fourth equalities follow from translation invariance of outer measure (Exercise~7) and the third equality follows from measurability of~\(E\). Therefore \(E+y\)~is measurable.
+\end{proof}
+
+\begin{exer}[10]
+If \(E_1,E_2\subseteq\R\) are measurable, then
+\[\mo(E_1\union E_2)+\mo(E_1\sect E_2)=\mo E_1+\mo E_2\]
+\end{exer}
+\begin{proof}
+By the same argument used in the proof of Lemma~7 above (with \(A=\R\)), except appealing to additivity instead of subadditivity to get equality.
+\end{proof}
+
+\begin{exer}[11]
+For each \(n\ge 1\), let \(E_n=(n,\infty)\). Then \(E_{n+1}\subseteq E_n\) and \(\bigsect E_n=\emptyset\), but \(E_n\)~is measurable with \(\mo E_n=\infty\), so
+\[\mo\bigsect E_n=0\ne\infty=\lim_{n\to\infty}\mo E_n\]
+\end{exer}
+
+\begin{exer}[12]
+If \(\{E_n\}\)~is a countable sequence of disjoint measurable sets and \(A\subseteq\R\), then
+\[\mo\left(A\sect\bigunion E_n\right)=\sum\mo(A\sect E_n)\]
+\end{exer}
+\begin{proof}
+We have \(A\sect\bigunion E_n=\bigunion(A\sect E_n)\). Let \(F_n=A\sect E_n\). Then \(\mo\bigunion F_n\le\sum\mo F_n\) by subadditivity. Conversely, for any \(N\ge 1\),
+\[\sum_{n=1}^N\mo F_n=\mo\bigunion_{n=1}^N F_n\le\mo\bigunion F_n\]
+by finite additivity (Lemma~9) and monotonicity. Letting \(N\to\infty\), we have \(\sum\mo F_n\le\mo\bigunion F_n\) and hence \(\sum\mo F_n=\mo\bigunion F_n\).
+\end{proof}
+
+\begin{exer}[14]
+The Cantor ternary set~\(C\) has measure zero.
+\end{exer}
+\begin{proof}
+Write \(C=\bigsect C_n\) where \(C_n\)~is a union of~\(2^n\) disjoint closed intervals each of length~\(3^{-n}\) and \(C_{n+1}\subseteq C_n\). Then \(C_n\)~is measurable with \(\mo C_n=(2/3)^n\) and \(C\)~is measurable with \(\mo C=\lim_{n\to\infty}(2/3)^n=0\) (Proposition~14).
+\end{proof}
+
 % References
 \begin{thebibliography}{0}
 \bibitem{royden} Royden, H.~L. \textit{Real Analysis}, 3rd~ed. Prentice Hall, 1988.

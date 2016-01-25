@@ -10,6 +10,7 @@
 
 \newcommand{\union}{\cup}
 \newcommand{\sect}{\cap}
+\newcommand{\diff}{\bigtriangleup}
 \newcommand{\bigunion}{\bigcup}
 \newcommand{\bigsect}{\bigcap}
 
@@ -109,6 +110,53 @@ We now claim \(\mo(A\sect[E_1\union E_2])+\mo(A\sect[\comp{E_1\union E_2}])\le\m
 	&=\mo A+\mo A
 \end{align*}
 where the first inequality follows from \(A=(A\sect E_1\sect E_2)\union(A\sect[\comp{E_1}\union\comp{E_2}])\) and subadditivity, the second inequality follows from~(1), and the equality follows from measurability of \(E_1\)~and~\(E_2\). The claim now follows since \(\mo A<\infty\). Since \(A\)~was arbitrary, \(E_1\union E_2\)~is measurable.
+\end{proof}
+
+\begin{prop}[15]
+Let \(E\subseteq\R\). The following are equivalent:
+\begin{enumerate}
+\item[(i)] \(E\)~is measurable.
+\item[(ii)] Given \(\epsilon>0\), there is an open set \(O\supseteq E\) with \(\mo(O-E)<\epsilon\).
+\item[(iii)] Given \(\epsilon>0\), there is a closed set \(F\subseteq E\) with \(\mo(E-F)<\epsilon\).
+\item[(iv)] There is \(G\in\Gd\) with \(E\subseteq G\) and \(\mo(G-E)=0\).
+\item[(v)] There is \(F\in\Fs\) with \(F\subseteq E\) and \(\mo(E-F)=0\).
+\end{enumerate}
+If \(\mo E<\infty\), these are all equivalent to:
+\begin{enumerate}
+\item[(vi)] Given \(\epsilon>0\), there is a finite union~\(U\) of open intervals with\footnote{Recall \(U\diff E=(U-E)\union(E-U)\) is the symmetric difference of \(U\)~and~\(E\).} \(\mo(U\diff E)<\epsilon\).
+\end{enumerate}
+\end{prop}
+\begin{proof}
+(i)\(\implies\)(ii): Let \(\epsilon>0\). There is an open set \(O\supseteq E\) with \(\mo O\le\mo E+\epsilon/2\) (Proposition~5). Now \(O=E\union(O-E)\), so by measurability (Theorems 10,12) and additivity (Proposition~13),
+\[\mo E+\mo(O-E)=\mo O\le\mo E+\epsilon/2\]
+If \(\mo E<\infty\), it follows that \(\mo(O-E)\le\epsilon/2<\epsilon\). If \(\mo E=\infty\), let \(E_n=E\sect[-n,n]\). Then \(E_n\)~is measurable and \(\mo E_n<\infty\), so we may choose an open set \(O_n\supseteq E_n\) with \(\mo(O_n-E_n)<\epsilon/2^{n+1}\) by the above. Let \(O=\bigunion O_n\). Then \(O\)~is open, \(E\subseteq O\), and
+\[O-E=\bigunion O_n-E=\bigunion(O_n-E)\subseteq\bigunion(O_n-E_n)\]
+so
+\[\mo(O-E)\le\sum\mo(O_n-E_n)\le\sum\epsilon/2^{n+1}=\epsilon/2<\epsilon\]
+
+(i)\(\implies\)(iii): Let \(\epsilon>0\). Since \(\comp{E}\)~is measurable, there is an open set \(O\supseteq\comp{E}\) with \(\mo(O-\comp{E})<\epsilon\) by the above. Let \(F=\comp{O}\). Then \(F\)~is closed, \(F\subseteq E\), and \(E-F=O-\comp{E}\), so \(\mo(E-F)=\mo(O-\comp{E})<\epsilon\).
+
+(ii)\(\implies\)(iv): For each \(n\ge1\), choose \(O_n\supseteq E\) open with \(\mo(O_n-E)<1/n\). Let \(G=\bigsect O_n\). Then \(G\in\Gd\), \(E\subseteq G\), and \(G-E\subseteq O_n-E\) for all~\(n\), so \(\mo(G-E)\le\mo(O_n-E)<1/n\) for all~\(n\), so \(\mo(G-E)=0\).
+
+(iii)\(\implies\)(v): For each \(n\ge1\), choose \(F_n\subseteq E\) closed with \(\mo(E-F_n)<1/n\). Let \(F=\bigunion F_n\). Then \(F\in\Fs\), \(F\subseteq E\), and \(E-F\subseteq E-F_n\) for all~\(n\), so \(\mo(E-F)\le\mo(E-F_n)<1/n\) for all~\(n\), so \(\mo(E-F)=0\).
+
+(iv)\(\implies\)(i): If \(G\in\Gd\), \(E\subseteq G\), and \(\mo(G-E)=0\), then \(G\)~is measurable and \(G-E\)~is measurable, so \(E=G-(G-E)\) is also measurable.
+
+(v)\(\implies\)(i): If \(F\in\Fs\), \(F\subseteq E\), and \(\mo(E-F)=0\), then \(F\)~is measurable and \(E-F\)~is measurable, so \(E=F\union(E-F)\) is also measurable.
+
+The implications above establish the equivalence of (i)--(v). Finally, suppose \(\mo E<\infty\).
+
+(ii)\(\implies\)(vi): Let \(\epsilon>0\). Choose \(O\supseteq E\) open with \(\mo(O-E)<\epsilon/2\). Write \(O=\bigunion I_n\), where \(\{I_n\}\)~is a countable set of disjoint open intervals (Proposition~2.8). By additivity,
+\[\sum\mo I_n=\mo(O)<\mo(E)+\epsilon/2<\infty\]
+so there is~\(N\) with \(\mo O-\sum_{n=1}^N\mo I_n<\epsilon/2\). Let \(U=\bigunion_{n=1}^N I_n\). Then \(U-E\subseteq O-E\), so \(\mo(U-E)\le\mo(O-E)<\epsilon/2\), and \(E-U\subseteq O-U\), so \(\mo(E-U)\le\mo(O-U)=\mo O-\mo U<\epsilon/2\). Therefore
+\[\mo(U\diff E)\le\mo(U-E)+\mo(E-U)<\epsilon/2+\epsilon/2=\epsilon\]
+
+(vi)\(\implies\)(ii): Let \(\epsilon>0\). Choose a finite union~\(U\) of open intervals with \(\mo(U\diff E)<\epsilon/3\). Choose \(V\supseteq E-U\) open with \(\mo V\le\mo(E-U)+\epsilon/3\) (Proposition~5). Let \(O=U\union V\). Then \(O\)~is open, \(E\subseteq O\), and \(O-E\subseteq(U-E)\union V\), so
+\begin{align*}
+\mo(O-E)&\le\mo(U-E)+\mo V\\
+	&\le\mo(U-E)+\mo(E-U)+\epsilon/3\\
+	&<\epsilon/3+\epsilon/3+\epsilon/3=\epsilon\qedhere
+\end{align*}
 \end{proof}
 
 % References

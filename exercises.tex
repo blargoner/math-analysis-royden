@@ -212,29 +212,31 @@ Write \(C=\bigsect C_n\) where \(C_n\)~is a union of~\(2^n\) disjoint closed int
 
 \subsection*{Section~5}
 \begin{rmk}
+We write \(\{\,f>\alpha\,\}\) for \(\{\,x\mid f(x)>\alpha\,\}\), \(\{\,f=\alpha\,\}\) for \(\{\,x\mid f(x)=\alpha\,\}\), and similarly for other sets.
+\end{rmk}
+
+\begin{rmk}
 A constant function (with measurable domain) is measurable.
 \end{rmk}
 
 \begin{rmk}
-A continuous function~\(f\) (with measurable domain) is measurable. If \(\alpha\in\R\), then \((\alpha,\infty]\)~is open, hence \(\{\,x\mid f(x)>\alpha\,\}=f^{-1}(\alpha,\infty]\) is open and hence measurable.
+A continuous function~\(f\) (with measurable domain) is measurable. If \(\alpha\in\R\), then \((\alpha,\infty]\)~is open, so \(\{\,f>\alpha\,\}=f^{-1}(\alpha,\infty]\) is open and measurable.
 \end{rmk}
 
 \begin{rmk}
-A step function\footnote{Recall that a step function is just a finite linear combination of characteristic functions of intervals.} \(f\) is measurable. If \(\alpha\in\R\), then \(\{\,x\mid f(x)>\alpha\,\}\) is a finite union of intervals and hence measurable.
+A step function\footnote{Recall that a step function is just a finite linear combination of characteristic functions of intervals.} \(f\) is measurable. If \(\alpha\in\R\), then \(\{\,f>\alpha\,\}\) is a finite union of intervals and hence measurable.
 \end{rmk}
 
 \begin{rmk}
-The restriction of a measurable function~\(f\) to a measurable subset~\(E\) of its domain is measurable. If \(\alpha\in\R\),
-\[\{\,x\mid\res{f}{E}(x)>\alpha\,\}=\{\,x\mid f(x)>\alpha\,\}\sect E\]
-is measurable.
+The restriction of a measurable function~\(f\) to a measurable subset~\(E\) of its domain is measurable. If \(\alpha\in\R\), \(\{\,\res{f}{E}>\alpha\,\}=\{\,f>\alpha\,\}\sect E\) is measurable.
 \end{rmk}
 
 \begin{exer}[19]
-If \(D\subseteq\R\) is dense and \(f:\R\to\Rex\) is such that \(\{\,x\mid f(x)>\alpha\,\}\) is measurable for each \(\alpha\in D\), then \(f\)~is measurable.
+If \(D\subseteq\R\) is dense and \(f:\R\to\Rex\) is such that \(\{\,f>\alpha\,\}\) is measurable for each \(\alpha\in D\), then \(f\)~is measurable.
 \end{exer}
 \begin{proof}
 If \(\alpha\in\R\), choose \(\{\alpha_k\}\subseteq D\) with \(\alpha_k>\alpha\) and \(\alpha_k\to\alpha\) by density of~\(D\). Then
-\[\{\,x\mid f(x)>\alpha\,\}=\bigunion_{k=1}^{\infty}\{\,x\mid f(x)>\alpha_k\,\}\]
+\[\{\,f>\alpha\,\}=\bigunion_{k=1}^{\infty}\{\,f>\alpha_k\,\}\]
 is measurable.
 \end{proof}
 
@@ -252,7 +254,7 @@ is measurable.
 \begin{proof}\ 
 \begin{enumerate}
 \item[(a)] The forward direction follows from the remark above about restrictions. If \(\res{f}{D}\)~and~\(\res{f}{E}\) are measurable, then \(D\union E\)~is measurable and
-\[\{\,x\mid f(x)>\alpha\,\}=\{\,x\mid\res{f}{D}(x)>\alpha\,\}\union\{\,x\mid\res{f}{E}(x)>\alpha\,\}\]
+\[\{\,f>\alpha\,\}=\{\,\res{f}{D}>\alpha\,\}\union\{\,\res{f}{E}>\alpha\,\}\]
 is measurable for all \(\alpha\in\R\), so \(f\)~is measurable.
 \item[(b)] By part~(a), \(g\)~is measurable if and only if the restrictions \(\res{g}{D}=f\) and \(\res{g}{\comp{D}}=0\) are measurable, which is true if and only if \(f\)~is measurable.\qedhere
 \end{enumerate}
@@ -260,7 +262,7 @@ is measurable for all \(\alpha\in\R\), so \(f\)~is measurable.
 
 \begin{exer}[22]\ 
 \begin{enumerate}
-\item[(a)] Let \(D\subseteq\R\) be measurable and \(f:D\to\Rex\). Let \(D_1=\{\,x\mid f(x)=\infty\,\}\) and \(D_2=\{\,x\mid f(x)=-\infty\,\}\). Then \(f\)~is measurable if and only if \(D_1\)~and~\(D_2\) are measurable and \(\res{f}{D-(D_1\union D_2)}\)~is measurable.
+\item[(a)] Let \(D\subseteq\R\) be measurable and \(f:D\to\Rex\). Let \(D_1=\{\,f=\infty\,\}\) and \(D_2=\{\,f=-\infty\,\}\). Then \(f\)~is measurable if and only if \(D_1\)~and~\(D_2\) are measurable and \(\res{f}{D-(D_1\union D_2)}\)~is measurable.
 \item[(b)] If \(f,g:D\to\Rex\) are measurable, then \(fg\)~is measurable.
 \item[(c)] If \(f,g:D\to\Rex\) are measurable and \(\alpha\in\Rex\), then \(f+g\)~is measurable if it is defined to be~\(\alpha\) when it is of form \(\infty-\infty\) or \(-\infty+\infty\).
 \item[(d)] If \(f,g:D\to\Rex\) are measurable and finite a.e., then \(f+g\)~is measurable no matter how it is defined when it is of the form \(\infty-\infty\) or \(-\infty+\infty\).
@@ -271,7 +273,7 @@ is measurable for all \(\alpha\in\R\), so \(f\)~is measurable.
 \item[(a)] If \(f\)~is measurable, then \(D_1\)~and~\(D_2\) are measurable (Proposition~18), so \(D-(D_1\union D_2)\) is measurable, and \(\res{f}{D-(D_1\union D_2)}\) is measurable by the remark above about restrictions.
 
 For the converse, note \(D=[D-(D_1\union D_2)]\union D_1\union D_2\) and the restrictions \(\res{f}{D-(D_1\union D_2)}\), \(\res{f}{D_1}=\infty\), and \(\res{f}{D_2}=-\infty\) are measurable, so \(f\)~is measurable by Exercise~21(a).
-\item[(b)] We have\footnote{We write \(\{\,f=0\,\}\) for \(\{\,x\mid f(x)=0\,\}\), and similarly for other sets.}
+\item[(b)] We have
 \begin{align*}
 \{\,fg=\infty\,\}&=\left(\,\{\,f=\infty\,\}\sect\{\,g>0\,\}\,\right)\\
 	&\quad\union\left(\,\{\,f=-\infty\,\}\sect\{\,g<0\,\}\,\right)\\

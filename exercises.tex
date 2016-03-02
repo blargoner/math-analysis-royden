@@ -17,10 +17,14 @@
 
 \newcommand{\len}{l}
 \newcommand{\mo}{m^*}
+\newcommand{\m}{m}
 
 \newcommand{\comp}[1]{\widetilde{#1}}
 \newcommand{\closure}[1]{\overline{#1}}
 \newcommand{\res}[2]{{#1}|_{#2}}
+\newcommand{\abs}[1]{|{#1}|}
+\newcommand{\bigabs}[1]{\left|{#1}\right|}
+\newcommand{\chr}[1]{\chi_{#1}}
 
 % Theorems
 \theoremstyle{plain}
@@ -265,7 +269,7 @@ is measurable for all \(\alpha\in\R\), so \(f\)~is measurable.
 \item[(a)] Let \(D\subseteq\R\) be measurable and \(f:D\to\Rex\). Let \(D_1=\{\,f=\infty\,\}\) and \(D_2=\{\,f=-\infty\,\}\). Then \(f\)~is measurable if and only if \(D_1\)~and~\(D_2\) are measurable and \(\res{f}{D-(D_1\union D_2)}\)~is measurable.
 \item[(b)] If \(f,g:D\to\Rex\) are measurable, then \(fg\)~is measurable.
 \item[(c)] If \(f,g:D\to\Rex\) are measurable and \(\alpha\in\Rex\), then \(f+g\)~is measurable if it is defined to be~\(\alpha\) when it is of form \(\infty-\infty\) or \(-\infty+\infty\).
-\item[(d)] If \(f,g:D\to\Rex\) are measurable and finite a.e., then \(f+g\)~is measurable no matter how it is defined when it is of the form \(\infty-\infty\) or \(-\infty+\infty\).
+\item[(d)] If \(f,g:D\to\Rex\) are measurable and finite~a.e., then \(f+g\)~is measurable no matter how it is defined when it is of the form \(\infty-\infty\) or \(-\infty+\infty\).
 \end{enumerate}
 \end{exer}
 \begin{proof}\ 
@@ -273,6 +277,7 @@ is measurable for all \(\alpha\in\R\), so \(f\)~is measurable.
 \item[(a)] If \(f\)~is measurable, then \(D_1\)~and~\(D_2\) are measurable (Proposition~18), so \(D-(D_1\union D_2)\) is measurable, and \(\res{f}{D-(D_1\union D_2)}\) is measurable by the remark above about restrictions.
 
 For the converse, note \(D=[D-(D_1\union D_2)]\union D_1\union D_2\) and the restrictions \(\res{f}{D-(D_1\union D_2)}\), \(\res{f}{D_1}=\infty\), and \(\res{f}{D_2}=-\infty\) are measurable, so \(f\)~is measurable by Exercise~21(a).
+
 \item[(b)] We have
 \begin{align*}
 \{\,fg=\infty\,\}&=\left(\,\{\,f=\infty\,\}\sect\{\,g>0\,\}\,\right)\\
@@ -287,6 +292,7 @@ Let \(F=\{\,f\ne\pm\infty\,\}\sect\{\,g\ne\pm\infty\,\}\). Then
 Now \(F\)~is measurable, so \(\res{f}{F}\)~and~\(\res{g}{F}\) are measurable, and \(\res{fg}{F}=\res{f}{F}\cdot\res{g}{F}\) is measurable (Proposition~19). Also \(\res{fg}{\{f=0\}}=0\) and \(\res{fg}{\{g=0\}}=0\) are measurable. Hence \(\res{fg}{\{fg\ne\pm\infty\}}\)~is measurable by Exercise~21(a).
 
 It follows that \(fg\)~is measurable by part~(a).
+
 \item[(c)] We assume \(\alpha\in\R\) (the cases \(\alpha=\pm\infty\) are similar). Then
 \[\{\,f+g=\infty\,\}=\left(\,\{\,f=\infty\,\}\sect\{\,g\ne-\infty\,\}\,\right)\union\left(\,\{\,f\ne-\infty\,\}\sect\{\,g=\infty\,\}\,\right)\]
 is measurable since \(f\)~and~\(g\) are measurable. Similarly \(\{\,f+g=-\infty\,\}\) is measurable.
@@ -294,9 +300,54 @@ is measurable since \(f\)~and~\(g\) are measurable. Similarly \(\{\,f+g=-\infty\
 Let \(F=\{\,f\ne\pm\infty\,\}\sect\{\,g\ne\pm\infty\,\}\), \(I_1=\{\,f=\infty\,\}\sect\{\,g=-\infty\,\}\), and \(I_2=\{\,f=-\infty\,\}\sect\{\,g=\infty\,\}\). Then \(\{\,f+g\ne\pm\infty\,\}=F\union I_1\union I_2\). Now \(F\)~is measurable, so \(\res{f}{F}\)~and~\(\res{g}{F}\) are measurable, and \(\res{(f+g)}{F}=\res{f}{F}+\res{g}{F}\) is measurable (Proposition~19). Also \(\res{f}{I_1\union I_2}=\alpha\) is measurable. Hence \(\res{(f+g)}{\{f+g\ne\pm\infty\}}\)~is measurable by Exercise~21(a).
 
 It follows that \(f+g\)~is measurable by part~(a).
-\item[(d)] By part~(c), \(f+g\)~is equal a.e. to a measurable function (with \(\alpha=0\), say), hence is measurable (Proposition~21).\qedhere
+
+\item[(d)] By part~(c), \(f+g\)~is equal~a.e. to a measurable function (with \(\alpha=0\), say), hence is measurable (Proposition~21).\qedhere
 \end{enumerate}
 \end{proof}
+
+\begin{exer}[23]\ 
+\begin{enumerate}
+\item[(a)] Let \(f:[a,b]\to\Rex\) be measurable and finite~a.e. Given \(\epsilon>0\), there exists~\(M\) with \(\abs{f}\le M\) except on a set of measure less than~\(\epsilon\).
+\item[(b)] Let \(f:[a,b]\to\Rex\) be measurable. Given \(\epsilon>0\) and~\(M\), there exists a simple function \(\varphi:[a,b]\to\R\) with \(\abs{f-\varphi}<\epsilon\) except where \(\abs{f}\ge M\). If \(m\le f\le M\), then we may take \(m\le\varphi\le M\).
+\item[(c)] Let \(\varphi:[a,b]\to\R\) be simple. Given \(\epsilon>0\), there exists a step function \(g:[a,b]\to\R\) with \(\varphi=g\) except on a set of measure less than~\(\epsilon\). If \(m\le\varphi\le M\), then we may take \(m\le g\le M\).
+\item[(d)] Let \(g:[a,b]\to\R\) be a step function. Given \(\epsilon>0\), there exists a continuous function \(h:[a,b]\to\R\) with \(g=h\) except on a set of measure less than~\(\epsilon\). If \(m\le g\le M\), then we may take \(m\le h\le M\).
+\end{enumerate}
+Finally, if \(f:[a,b]\to\Rex\) is measurable and finite~a.e., then given \(\epsilon>0\) there exists a step function~\(g:[a,b]\to\R\) and a continuous function \(h:[a,b]\to\R\) such that
+\[\abs{f-g}<\epsilon\qquad\text{and}\qquad\abs{f-h}<\epsilon\]
+except on a set of measure less than~\(\epsilon\). Moreover, if \(m\le f\le M\), then we may take \(m\le g\le M\) and \(m\le h\le M\).
+\end{exer}
+\begin{proof}\ 
+\begin{enumerate}
+\item[(a)] Let \(\epsilon>0\). Since \(f\)~is measurable,
+\[F_n=\{\,\abs{f}>n\,\}=\{\,f<-n\,\}\union\{\,f>n\,\}\]
+is measurable for all~\(n\ge0\), with \(\m F_n<\infty\) since \(F_n\subseteq[a,b]\). Moreover, \(F_{n+1}\subseteq F_n\) and \(\bigsect F_n=\{\,\abs{f}=\infty\,\}\). Therefore (Proposition~14)
+\[\lim\m F_n=\m\bigsect F_n=\m\{\,\abs{f}=\infty\,\}=0\]
+since \(f\)~is finite~a.e. Choose~\(M\) with \(\m F_M<\epsilon\). Then \(\abs{f}\le M\) except on a set of measure less than~\(\epsilon\).
+
+\item[(b)] Let \(\epsilon,M>0\). Let \(-M=\alpha_0<\cdots<\alpha_n=M\) be a partition of~\([-M,M]\) with mesh less than~\(\epsilon\). Let \(A_i=\{\,\alpha_{i-1}<f\le\alpha_i\,\}\) for \(1\le i\le n\). Then each~\(A_i\) is measurable since \(f\)~is measurable.
+
+Let \(\varphi=\sum_{i=1}^n\alpha_i\chr{A_i}\). Then \(\varphi\)~is simple. If \(\abs{f(x)}<M\), then \(x\in A_i\) for exactly one \(1\le i\le n\), so \(\varphi(x)=\alpha_i\) and
+\[\abs{f(x)-\varphi(x)}<\alpha_i-\alpha_{i-1}<\epsilon\]
+Therefore \(\abs{f-\varphi}<\epsilon\) except where \(\abs{f}\ge M\). If \(m\le f\le M\), then by instead partitioning \([m,M]\) we obtain \(m\le\varphi\le M\).
+
+\item[(c)] Let \(\epsilon>0\). Write \(\varphi=\sum_{i=1}^n\alpha_i\chr{A_i}\) where the sets~\(A_i\) are measurable and partition~\([a,b]\). For each~\(A_i\), there exists a finite union~\(U_i\) of open intervals with \(\m(A_i\diff U_i)<\epsilon/n\) (Proposition~15). Let \(D_i=A_i\diff U_i\).
+
+Let \(g=\sum_{i=1}^n\alpha_i\chr{U_i}\) on~\([a,b]\). Then \(g\)~is a step function. If \(\varphi(x)\ne g(x)\), then \(x\in A_i\) for exactly one \(1\le i\le n\). If \(x\not\in U_i\), then \(x\in A_i-U_i\subseteq D_i\). If \(x\in U_i\), then we must also have \(x\in U_j\) for some \(j\ne i\), lest \(\varphi(x)=\alpha_i=g(x)\), so \(x\in U_j-A_j\subseteq D_j\). Hence \(\{\,\varphi\ne g\,\}\subseteq\bigunion D_i\), so \(\mo\{\,\varphi\ne g\,\}\le\sum\m D_i<n(\epsilon/n)=\epsilon\). Therefore \(\varphi=g\) except on a set of measure less than~\(\epsilon\).
+
+If \(m\le\varphi\le M\), then by setting \(g(x)=m\) for \(x\not\in\bigunion U_i\) and for \(x\in U_i\sect U_j\) with \(i\ne j\), we have \(m\le g\le M\).
+
+\item[(d)] Let \(\epsilon>0\). Write \(a=x_0<\cdots<x_n=b\) with partition mesh~\(\delta\) and \(g(x)=\alpha_i\) for \(x\in(x_{i-1},x_i)\), \(1\le i\le n\). Let \(\gamma=\min(\epsilon/n,\delta)/2\). Define \(h\)~to be equal to~\(g\) except for \(1\le i\le n-1\) on \([x_i-\gamma,x_i+\gamma]\), where it is defined by
+\[h(x)=\frac{\alpha_i-\alpha_{i-1}}{2\gamma}[x-(x_i-\gamma)]+\alpha_{i-1}\]
+(Note \(h\)~connects adjacent ``steps'' of~\(g\) using line segments defined over small subintervals.) Then \(h\)~is piecewise linear and continuous, and \(g=h\) except on a set of measure less than~\(n(\epsilon/n)=\epsilon\).
+
+If \(m\le g\le M\), clearly \(m\le h\le M\).
+\end{enumerate}
+
+\noindent Finally, suppose \(f:[a,b]\to\Rex\) is measurable and finite~a.e. and let \(\epsilon>0\). By~(a), we may assume \(m\le f\le M\) except on a set~\(E_1\) with \(\mo E_1<\epsilon/3\). By~(b), there exists a simple function~\(\varphi\) with \(m\le\varphi\le M\) and \(\abs{f-\varphi}<\epsilon\) except on~\(E_1\). By~(c), there exists a step function~\(g\) with \(m\le g\le M\) and \(\varphi=g\) except on a set~\(E_2\) with \(\mo E_2<\epsilon/3\). Finally, by~(d) there exists a continuous function~\(h\) with \(m\le h\le M\) and \(g=h\) except on a set~\(E_3\) with \(\mo E_3<\epsilon/3\). Let \(E=E_1\union E_2\union E_3\), so \(\mo E<\epsilon\). Then \(\abs{f-g}<\epsilon\) and \(\abs{f-h}<\epsilon\) except on~\(E\).
+\end{proof}
+\begin{rmk}
+This shows that measurable functions are ``almost'' step functions and ``almost'' continuous.
+\end{rmk}
 
 % References
 \begin{thebibliography}{0}

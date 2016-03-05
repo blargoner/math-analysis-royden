@@ -3,6 +3,7 @@
 \documentclass[letterpaper,12pt]{article}
 \usepackage{amsmath,amssymb,amsthm,enumitem,fourier}
 
+\newcommand{\C}{\mathcal{C}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Rex}{\overline{\R}}
@@ -14,6 +15,7 @@
 \newcommand{\diff}{\bigtriangleup}
 \newcommand{\bigunion}{\bigcup}
 \newcommand{\bigsect}{\bigcap}
+\newcommand{\after}{\circ}
 
 \newcommand{\len}{l}
 \newcommand{\mo}{m^*}
@@ -25,6 +27,7 @@
 \newcommand{\abs}[1]{|{#1}|}
 \newcommand{\bigabs}[1]{\left|{#1}\right|}
 \newcommand{\chr}[1]{\chi_{#1}}
+\newcommand{\inv}[1]{#1^{-1}}
 
 % Theorems
 \theoremstyle{plain}
@@ -347,6 +350,29 @@ If \(m\le g\le M\), clearly \(m\le h\le M\).
 \end{proof}
 \begin{rmk}
 This shows that measurable functions are ``almost'' step functions and ``almost'' continuous.
+\end{rmk}
+
+\begin{exer}[24]
+If \(f:D\to\Rex\) is measurable and \(B\)~is a Borel set, then \(\inv{f}[B]\)~is measurable.
+\end{exer}
+\begin{proof}
+Let \(\C\)~be the class of sets~\(X\) such that \(\inv{f}[X]\)~is measurable. We claim that \(\C\)~is a \(\sigma\)-algebra containing the open intervals, so that \(\C\)~contains the Borel sets by definition.
+
+If \(X\in\C\), then \(\inv{f}[\comp{X}]=\comp{\inv{f}[X]}\) is measurable, so \(\comp{X}\in\C\). If \(X_n\in\C\), then \(\inv{f}[\bigunion X_n]=\bigunion\inv{f}[X_n]\) is measurable, so \(\bigunion X_n\in\C\). Therefore \(\C\)~is a \(\sigma\)-algebra. If \((\alpha,\beta)\)~is an interval, then
+\[\inv{f}(\alpha,\beta)=\{\,\alpha<f<\beta\,\}=\{\,f>\alpha\,\}\sect\{\,f<\beta\,\}\]
+is measurable, so \(\C\)~contains the open intervals.
+\end{proof}
+
+\begin{exer}[25]
+If \(f:D\to\R\) is measurable and \(g:\R\to\R\) is continuous, then \(g\after f:D\to\R\) is measurable.
+\end{exer}
+\begin{proof}
+For \(\alpha\in\R\),
+\[\{\,g\after f>\alpha\,\}=\inv{(g\after f)}(\alpha,\infty)=\inv{f}[\inv{g}(\alpha,\infty)]\]
+Note \(\inv{g}(\alpha,\infty)\)~is open, and hence Borel, since \(g\)~is continuous. Therefore \(\inv{f}[\inv{g}(\alpha,\infty)]\)~is measurable since \(f\)~is measurable (Exercise~24).
+\end{proof}
+\begin{rmk}
+This shows that a continuous function of a measurable function is measurable.
 \end{rmk}
 
 % References

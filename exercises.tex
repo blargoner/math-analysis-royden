@@ -375,6 +375,30 @@ Note \(\inv{g}(\alpha,\infty)\)~is open, and hence Borel, since \(g\)~is continu
 This shows that a continuous function of a measurable function is measurable.
 \end{rmk}
 
+\subsection*{Section~6}
+\begin{rmk}
+In the proof of Proposition~23, it is sufficient that \(\m\bigsect E_N=0\), which is true if \(f_n\to f\) a.e. This is just Proposition~24.
+\end{rmk}
+
+\begin{exer}[29]
+Let \(E=(0,\infty)\), so \(E\)~is measurable with \(\m E=\infty\). Let \(f_n=\chr{(n,\infty)}\) and \(f=0\), so \(f_n\)~is measurable and \(f_n\to f\). Let \(\epsilon=\delta=1\). Then for all~\(N\),
+\[\m\{\,\abs{f_N-f}\ge\epsilon\,\}=\m\{\,f_N=1\,\}=\m(N,\infty)=\infty>\delta\]
+\end{exer}
+
+\begin{exer}[30 (Egoroff)]
+Let \(E\)~be measurable with \(\m E<\infty\). Let \(f_n:E\to\Rex\) be measurable and \(f:E\to\R\) with \(f_n\to f\) a.e. on~\(E\). Given \(\delta>0\), there exists \(A\subseteq E\) measurable with \(\m A<\delta\) such that \(f_n\to f\) uniformly on~\(E-A\).
+\end{exer}
+\begin{proof}
+Let \(\epsilon_n=1/n\) and \(\delta_n=\delta/2^{n+1}\). For each~\(n\), there exists~\(N_n\) and \(A_n\subseteq E\) measurable with \(\m A_n<\delta_n\) such that \(\abs{f_m-f}<\epsilon_n\) for all \(m\ge N_n\) on~\(E-A_n\) (Proposition~24). Let \(A=\bigunion A_n\). Then \(A\)~is measurable and
+\[\m A\le\sum\m A_n\le\sum\delta/2^{n+1}=\delta/2<\delta\]
+Given \(\epsilon>0\), choose~\(n\) with \(\epsilon_n<\epsilon\) and set \(N=N_n\). Then for \(m\ge N\) and \(x\in E-A\subseteq E-A_n\),
+\[\abs{f_m(x)-f(x)}<\epsilon_n<\epsilon\]
+Therefore \(f_n\to f\) uniformly on \(E-A\).
+\end{proof}
+\begin{rmk}
+This shows that a convergent sequence of measurable functions (on a set of finite measure) is ``almost'' uniformly convergent.
+\end{rmk}
+
 % References
 \begin{thebibliography}{0}
 \bibitem{royden} Royden, H.~L. \textit{Real Analysis}, 3rd~ed. Prentice Hall, 1988.

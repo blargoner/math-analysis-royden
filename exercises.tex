@@ -51,6 +51,30 @@
 \section*{Introduction}
 This document contains notes and exercises from~\cite{royden}.
 
+\section*{Chapter~2}
+\subsection*{Section~6}
+\begin{exer}[51]
+Let \(f:[a,b]\to\R\). Let
+\begin{align*}
+g(y)&=\sup_{\delta>0}\inf_{\abs{x-y}<\delta}f(x)\\
+h(y)&=\inf_{\delta>0}\sup_{\abs{x-y}<\delta}f(x)
+\end{align*}
+be the lower and upper envelopes of~\(f\), respectively. Then \(g(x)\le f(x)\le h(x)\) and \(g(x)=h(x)\) if and only if \(f\)~is continuous at~\(x\).
+\end{exer}
+\begin{proof}
+For all \(\delta>0\), \(\inf_{\abs{y-x}<\delta}f(y)\le f(x)\), so \(g(x)\le f(x)\); similarly, \(f(x)\le h(x)\).
+
+If \(g(x)=h(x)\), then for \(\epsilon>0\) there exists \(\delta_1>0\) such that
+\[\inf_{\abs{y-x}<\delta_1}f(y)>g(x)-\epsilon=f(x)-\epsilon\]
+and \(\delta_2>0\) such that
+\[\sup_{\abs{y-x}<\delta_2}f(y)<h(x)+\epsilon=f(x)+\epsilon\]
+Let \(\delta=\min\{\delta_1,\delta_2\}\). If \(\abs{y-x}<\delta\), then
+\[f(x)-\epsilon<\inf_{\abs{z-x}<\delta_1}f(z)\le f(y)\le\sup_{\abs{z-x}<\delta_2}f(z)<f(x)+\epsilon\]
+so \(\abs{f(y)-f(x)}<\epsilon\). Therefore \(f\)~is continuous at~\(x\).
+
+Conversely, if \(f\)~is continuous at~\(x\), suppose towards a contradiction that \(f(x)>g(x)\). Let \(\epsilon=f(x)-g(x)>0\) and choose \(\delta>0\) such that \(\abs{y-x}<\delta\) implies \(f(y)\ge f(x)-\epsilon/2\). Then \(\inf_{\abs{y-x}<\delta}f(y)\ge f(x)-\epsilon/2\), so \(g(x)\ge f(x)-\epsilon/2>g(x)\), a contradiction. So \(g(x)=f(x)\), and similarly \(f(x)=h(x)\).
+\end{proof}
+
 \section*{Chapter~3}
 \subsection*{Section~2}
 \begin{prop}[5]

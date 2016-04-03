@@ -56,23 +56,31 @@ This document contains notes and exercises from~\cite{royden}.
 \begin{exer}[51]
 Let \(f:[a,b]\to\R\). Let
 \begin{align*}
-g(y)&=\sup_{\delta>0}\inf_{\abs{x-y}<\delta}f(x)\\
-h(y)&=\inf_{\delta>0}\sup_{\abs{x-y}<\delta}f(x)
+g(x)&=\sup_{\delta>0}\inf_{\abs{y-x}<\delta}f(y)\\
+h(x)&=\inf_{\delta>0}\sup_{\abs{y-x}<\delta}f(y)
 \end{align*}
-be the lower and upper envelopes of~\(f\), respectively. Then \(g(x)\le f(x)\le h(x)\) and \(g(x)=h(x)\) if and only if \(f\)~is continuous at~\(x\).
+be the lower and upper envelopes of~\(f\), respectively.
+\begin{enumerate}
+\item[(a)] For all~\(x\in[a,b]\), \(g(x)\le f(x)\le h(x)\), \(g(x)=f(x)\) if and only if \(f\)~is lower semicontinuous at~\(x\), \(f(x)=h(x)\) if and only if \(f\)~is upper semicontinuous at~\(x\), and \(g(x)=h(x)\) if and only if \(f\)~is continuous at~\(x\).
+\item[(b)] If \(f\)~is bounded, then \(g\)~is lower semicontinuous and \(h\)~is upper semicontinuous.
+\item[(c)] If \(\varphi\le f\) is lower semicontinuous, then \(\varphi\le g\), and if \(\psi\ge f\) is upper semicontinuous, then \(\psi\ge h\).
+\end{enumerate}
 \end{exer}
-\begin{proof}
-For all \(\delta>0\), \(\inf_{\abs{y-x}<\delta}f(y)\le f(x)\), so \(g(x)\le f(x)\); similarly, \(f(x)\le h(x)\).
 
-If \(g(x)=h(x)\), then for \(\epsilon>0\) there exists \(\delta_1>0\) such that
-\[\inf_{\abs{y-x}<\delta_1}f(y)>g(x)-\epsilon=f(x)-\epsilon\]
-and \(\delta_2>0\) such that
-\[\sup_{\abs{y-x}<\delta_2}f(y)<h(x)+\epsilon=f(x)+\epsilon\]
-Let \(\delta=\min\{\delta_1,\delta_2\}\). If \(\abs{y-x}<\delta\), then
-\[f(x)-\epsilon<\inf_{\abs{z-x}<\delta_1}f(z)\le f(y)\le\sup_{\abs{z-x}<\delta_2}f(z)<f(x)+\epsilon\]
-so \(\abs{f(y)-f(x)}<\epsilon\). Therefore \(f\)~is continuous at~\(x\).
+\begin{proof}\ 
+\begin{enumerate}
+\item[(a)] For all \(\delta>0\), \(\inf_{\abs{y-x}<\delta}f(y)\le f(x)\), so \(g(x)\le f(x)\); similarly, \(f(x)\le h(x)\).
 
-Conversely, if \(f\)~is continuous at~\(x\), suppose towards a contradiction that \(f(x)>g(x)\). Let \(\epsilon=f(x)-g(x)>0\) and choose \(\delta>0\) such that \(\abs{y-x}<\delta\) implies \(f(y)\ge f(x)-\epsilon/2\). Then \(\inf_{\abs{y-x}<\delta}f(y)\ge f(x)-\epsilon/2\), so \(g(x)\ge f(x)-\epsilon/2>g(x)\), a contradiction. So \(g(x)=f(x)\), and similarly \(f(x)=h(x)\).
+If \(g(x)=f(x)\), then for \(\epsilon>0\) there is \(\delta>0\) such that \(\abs{y-x}<\delta\) implies
+\[f(y)\ge\inf_{\abs{y-x}<\delta}f(y)>g(x)-\epsilon=f(x)-\epsilon\]
+Therefore \(f\)~is lower semicontinuous at~\(x\) (Exercise~50(a)). Similarly \(f\)~is upper semicontinuous at~\(x\) if \(f(x)=h(x)\), and hence \(f\)~is continuous at~\(x\) if \(g(x)=h(x)\) (Exercise~50(b)).
+
+Conversely, if \(f\)~is lower semicontinuous at~\(x\), suppose that \(f(x)>g(x)\). We must have \(g(x)>-\infty\). Let \(\epsilon=f(x)-g(x)>0\) and choose \(\delta>0\) such that \(\abs{y-x}<\delta\) implies \(f(y)\ge f(x)-\epsilon/2\). Then \(\inf_{\abs{y-x}<\delta}f(y)\ge f(x)-\epsilon/2\), so that \(g(x)\ge f(x)-\epsilon/2>g(x)\), a contradiction. Therefore \(g(x)=f(x)\). Similarly \(f(x)=h(x)\) if \(f\)~is upper semicontinuous at~\(x\), and hence \(g(x)=h(x)\) if \(f\)~is continuous at~\(x\).
+
+\item[(b)] Since \(f\)~is bounded, \(g\)~is bounded. As above, given \(\epsilon>0\), there is \(\delta>0\) such that \(f(y)\ge g(x)-\epsilon\) for \(\abs{y-x}<\delta\). Given~\(y\) with \(\abs{y-x}<\delta\), there is \(\delta'>0\) such that \(\abs{z-y}<\delta'\) implies \(\abs{z-x}<\delta\), so \(g(y)\ge g(x)-\epsilon\). Therefore \(g\)~is lower semicontinuous at~\(x\). Similarly \(h\)~is upper semicontinuous at~\(x\).
+
+\item[(c)] If \(\lambda\)~is the lower envelope of~\(\varphi\), then \(\lambda\le g\) since \(\varphi\le f\), and \(\lambda=\varphi\) since \(\varphi\)~is lower semicontinuous (by part~(a)). Similarly for~\(h\).\qedhere
+\end{enumerate}
 \end{proof}
 
 \section*{Chapter~3}

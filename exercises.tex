@@ -10,6 +10,9 @@
 \newcommand{\Gd}{G_{\delta}}
 \newcommand{\Fs}{F_{\sigma}}
 
+\newcommand{\upto}{\uparrow}
+\newcommand{\downto}{\downarrow}
+
 \newcommand{\union}{\cup}
 \newcommand{\sect}{\cap}
 \newcommand{\diff}{\bigtriangleup}
@@ -28,6 +31,12 @@
 \newcommand{\bigabs}[1]{\left|{#1}\right|}
 \newcommand{\chr}[1]{\chi_{#1}}
 \newcommand{\inv}[1]{#1^{-1}}
+\newcommand{\doupperint}[2]{\smash{\int\limits^{\underline{\phantom{x}}}}\mathop{\vphantom{\int}}\nolimits_{\!\!\!\!{#1}}^{\!{#2}}}
+\newcommand{\dolowerint}[2]{\smash{\int\limits_{\overline{\phantom{x}}}}\mathop{\vphantom{\int}}\nolimits_{\!\!\!\!{#1}}^{\!{#2}}}
+\newcommand{\upperint}[2]{\mathchoice{\doupperint{#1}{#2}}{\doupperint{\;#1}{#2}}{}{}}
+\newcommand{\lowerint}[2]{\mathchoice{\dolowerint{#1}{#2}}{\dolowerint{\;#1}{#2}}{}{}}
+\newcommand{\Rupperint}[2]{R\upperint{#1}{#2}}
+\newcommand{\Rlowerint}[2]{R\lowerint{#1}{#2}}
 
 % Theorems
 \theoremstyle{plain}
@@ -430,6 +439,38 @@ Therefore \(f_n\to f\) uniformly on \(E-A\).
 \begin{rmk}
 This shows that a convergent sequence of measurable functions (on a set of finite measure) is ``almost'' uniformly convergent.
 \end{rmk}
+
+\section*{Chapter~4}
+\subsection*{Section~2}
+\begin{rmk}
+Let \(f:E\to\R\) be bounded and measurable with \(0<\m E<\infty\). If \(f>0\), then \(\int_E f>0\).
+\end{rmk}
+\begin{proof}
+Let \(E_n=\{\,f>1/n\,\}\). Then \(E=\bigunion E_n\), and since \(\m E>0\) there must be~\(n\) with \(\m E_n>0\) by countable subadditivity. Therefore (Proposition 5(iv),(v))
+\[\int_E f\ge\int_{E_n}f\ge(1/n)\m E_n>0\qedhere\]
+\end{proof}
+
+\begin{rmk}
+Let \(f,g:E\to\R\) be bounded and measurable with \(\m E<\infty\) and \(f\le g\). Then \(\int_E f=\int_E g\) if and only if \(f=g\) a.e.
+\end{rmk}
+\begin{proof}
+Let \(F=\{\,f\ne g\,\}=\{\,g-f>0\,\}\). If \(\m F>0\), then (Proposition 5(i),(iv),(v) and the previous remark)
+\[\int_E g-\int_E f=\int_E(g-f)\ge\int_F(g-f)>0\]
+The other direction is just Proposition~5(ii).
+\end{proof}
+
+\begin{prop}[7 - Lebesgue's criterion for Riemann integrability]
+A bounded function \(f:[a,b]\to\R\) is Riemann integrable if and only if it is continuous~a.e.
+\end{prop}
+\begin{proof}
+Let \(g\)~be the lower envelope for~\(f\). We claim that \(\Rlowerint{a}{b}f=\int_a^b g\). Indeed, there is a sequence of step functions \(\varphi_n\le g\le f\) with \(\varphi_n\upto g\) (Exercises 2.51(b), 2.50(g)). Therefore (Propositions 6, 5(iii), 4)
+\[\int_a^b g=\lim_n\int_a^b\varphi_n=\sup_n\int_a^b\varphi_n\le\Rlowerint{a}{b}f\]
+Conversely if \(\varphi\le f\) is a step function, then \(\varphi\)~is lower semicontinuous except at a finite number of points (Exercise~2.50(f)), so \(\varphi\le g\) except at a finite number of points (Exercise~2.51(c)), so \(\int_a^b\varphi\le\int_a^b g\). Since \(\varphi\)~was arbitrary, \(\Rlowerint{a}{b}f\le\int_a^b g\), establishing the claim. By similar argument, \(\Rupperint{a}{b}f=\int_a^b h\) where \(h\)~is the upper envelope of~\(f\).
+
+Now \(f\)~is Riemann integrable if and only if
+\[\int_a^b g=\Rlowerint{a}{b}f=\Rupperint{a}{b}f=\int_a^b h\]
+which is true if and only if \(g=h\) a.e. by the above remark, which is true if and only if \(f\)~is continuous~a.e. (Exercise~2.51(a)).
+\end{proof}
 
 % References
 \begin{thebibliography}{0}

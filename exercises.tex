@@ -19,6 +19,7 @@
 \newcommand{\bigunion}{\bigcup}
 \newcommand{\bigsect}{\bigcap}
 \newcommand{\after}{\circ}
+\DeclareMathOperator{\circplus}{\mathring{+}}
 
 \newcommand{\len}{l}
 \newcommand{\mo}{m^*}
@@ -260,6 +261,21 @@ The Cantor ternary set~\(C\) has measure zero.
 \begin{proof}
 Write \(C=\bigsect C_n\) where \(C_n\)~is a union of~\(2^n\) disjoint closed intervals each of length~\(3^{-n}\) and \(C_{n+1}\subseteq C_n\). Then \(C_n\)~is measurable with \(\mo C_n=(2/3)^n\) and \(C\)~is measurable with \(\mo C=\lim_{n\to\infty}(2/3)^n=0\) (Proposition~14).
 \end{proof}
+
+\subsection*{Section~4}
+\begin{exer}[15]
+If \(E\subseteq P\) is measurable, then \(\m E=0\).
+\end{exer}
+\begin{proof}
+Let \(E_i=E\circplus r_i\). Then \(E_i\)~is measurable and \(\m E_i=\m E\) (Lemma~16). Also \(E_i\sect E_j=\emptyset\) for \(i\ne j\) since \(E_i\subseteq P_i\). It follows that \(\bigunion E_i\)~is measurable and
+\[\sum\m E=\sum\m E_i=\m\bigunion E_i\le\m[0,1)=1\]
+Therefore \(\m E=0\).
+\end{proof}
+
+\begin{exer}[17]
+Let \(E_i=P+r_i\). Then \(\mo E_i=\mo P>0\) (Exercise~7, Lemma~6), so
+\[\mo\bigunion E_i\le\mo[0,2)=2<\infty=\sum\mo P=\sum\mo E_i\]
+\end{exer}
 
 \subsection*{Section~5}
 \begin{rmk}

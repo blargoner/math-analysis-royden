@@ -466,6 +466,10 @@ This shows that a convergent sequence of measurable functions (on a set of finit
 \section*{Chapter~4}
 \subsection*{Section~2}
 \begin{rmk}
+For the \emph{Riemann} integral of a function, we partition the \(x\)-axis and consider the \(y\)-values of the function on the subintervals of the partition. For the \emph{Lebesgue} integral, we partition the \(y\)-axis and consider the \(x\)-values mapped into the subintervals of the partition. This is seen in the proof of Proposition~3.
+\end{rmk}
+
+\begin{rmk}
 Let \(f:E\to\R\) be bounded and measurable with \(0<\m E<\infty\). If \(f>0\), then \(\int_E f>0\).
 \end{rmk}
 \begin{proof}
@@ -480,6 +484,15 @@ Let \(f,g:E\to\R\) be bounded and measurable with \(\m E<\infty\) and \(f\le g\)
 Let \(F=\{\,f\ne g\,\}=\{\,g-f>0\,\}\). If \(\m F>0\), then (Proposition 5(i),(iv),(v) and the previous remark)
 \[\int_E g-\int_E f=\int_E(g-f)\ge\int_F(g-f)>0\]
 The other direction is just Proposition~5(ii).
+\end{proof}
+
+\begin{rmk}
+Let \(f_n,f:E\to\R\) be bounded and measurable with \(\m E<\infty\) and \(f_n\le f_{n+1}\le f\) for all~\(n\). If \(\int f_n\to\int f\), then \(f_n\to f\) a.e.
+\end{rmk}
+\begin{proof}
+Let \(f^*=\lim f_n=\sup f_n\le f\). Then \(f^*\)~is measurable and
+\[0\le\int f-\int f^*\le\int f-\int f_n\to 0\]
+It follows that \(\int f^*=\int f\), so \(f^*=f\) a.e. by the previous remark.
 \end{proof}
 
 \begin{prop}[7 - Lebesgue's criterion for Riemann integrability]

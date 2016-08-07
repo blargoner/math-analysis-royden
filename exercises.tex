@@ -298,6 +298,10 @@ A step function\footnote{Recall that a step function is just a finite linear com
 The restriction of a measurable function~\(f\) to a measurable subset~\(E\) of its domain is measurable. If \(\alpha\in\R\), \(\{\,\res{f}{E}>\alpha\,\}=\{\,f>\alpha\,\}\sect E\) is measurable.
 \end{rmk}
 
+\begin{exer}[18]
+Let \(E\)~be a nonmeasurable set and \(f(x)=\exp(x)[\chr{E}(x)-\chr{\comp{E}}(x)]\). Then \(\{\,f>0\,\}=E\) is nonmeasurable, but \(\{\,f=\alpha\,\}\)~is measurable for each \(\alpha\in\Rex\) since \(f\)~assumes each value at most once.
+\end{exer}
+
 \begin{exer}[19]
 If \(D\subseteq\R\) is dense and \(f:\R\to\Rex\) is such that \(\{\,f>\alpha\,\}\) is measurable for each \(\alpha\in D\), then \(f\)~is measurable.
 \end{exer}
@@ -432,7 +436,7 @@ For \(\alpha\in\R\),
 Note \(\inv{g}(\alpha,\infty)\)~is open, and hence Borel, since \(g\)~is continuous. Therefore \(\inv{f}[\inv{g}(\alpha,\infty)]\)~is measurable since \(f\)~is measurable (Exercise~24).
 \end{proof}
 \begin{rmk}
-This shows that a continuous function of a measurable function is measurable.
+This shows that a continuous function of a measurable function is measurable. In particular, \(\abs{f}\)~is measurable if \(f\)~is measurable.
 \end{rmk}
 
 \subsection*{Section~6}

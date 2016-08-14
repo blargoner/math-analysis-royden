@@ -529,6 +529,11 @@ In Proposition~13, \(f-g\)~is never of form \(\infty-\infty\) since \(g<f\), so 
 This result shows that a nonnegative measurable function bounded above by an integrable function is itself integrable.
 \end{rmk}
 
+\begin{rmk}
+In the proof of Proposition~14, the technique of defining ``truncated'' versions of a function which converge to that function and then appealing to a convergence theorem for the integral is extremely important. However, it is not necessary in this proof. By definition, \(\int_E f=\sup_{h\le f}\int_E h\) where \(h\)~is a bounded measurable function vanishing outside a set of finite measure. So given \(\epsilon>0\), we can choose such an~\(h\) with \(\int_Ef-\int_Eh<\epsilon/2\), then choose \(\delta>0\) such that for all \(A\subseteq E\) with \(\m A<\delta\) we have \(\int_A h<\epsilon/2\), so
+\[\int_Af<\int_Ah+\epsilon/2<\epsilon/2+\epsilon/2=\epsilon\]
+\end{rmk}
+
 \subsection*{Section~4}
 \begin{rmk}
 In the proof of Proposition~15(ii), the following lemma is established: \emph{if \(f_1\) and~\(f_2\) are nonnegative integrable functions, then \(f=f_1-f_2\) is integrable and \(\int f=\int f_1-\int f_2\)}. This is an extension of Proposition~13.

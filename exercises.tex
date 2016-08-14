@@ -38,6 +38,8 @@
 \newcommand{\lowerint}[2]{\mathchoice{\dolowerint{#1}{#2}}{\dolowerint{\;#1}{#2}}{}{}}
 \newcommand{\Rupperint}[2]{R\upperint{#1}{#2}}
 \newcommand{\Rlowerint}[2]{R\lowerint{#1}{#2}}
+\newcommand{\pos}[1]{#1^+}
+\renewcommand{\neg}[1]{#1^-}
 
 % Theorems
 \theoremstyle{plain}
@@ -525,6 +527,13 @@ In the proof of Proposition~8(ii), \(h=\min(f,l)\) is the part of~\(l\) less tha
 In Proposition~13, \(f-g\)~is never of form \(\infty-\infty\) since \(g<f\), so \(f-g\)~is measurable (Exercise~3.22(d)). The conclusion still holds if \(g\le f\). Indeed, \(f=\infty\) on a set of measure zero since \(f\)~is integrable, hence the same is true of~\(g\). Therefore \(f-g=\infty-\infty\) on a set of measure zero, so \(f-g\)~is measurable.
 
 This result shows that a nonnegative measurable function bounded above by an integrable function is itself integrable.
+\end{rmk}
+
+\subsection*{Section~4}
+\begin{rmk}
+In the proof of Proposition~15(ii), the following lemma is established: \emph{if \(f_1\) and~\(f_2\) are nonnegative integrable functions, then \(f=f_1-f_2\) is integrable and \(\int f=\int f_1-\int f_2\)}. This is an extension of Proposition~13.
+
+In the proof of the lemma, we may assume \(f\)~is defined everywhere since \(f_1\) and~\(f_2\) are integrable. Then \(\pos{f}\)~is nonnegative and measurable, and \(\pos{f}\le f_1\) since \(f_1\) and~\(f_2\) are nonnegative, so \(\pos{f}\)~is integrable by a remark above. Similarly \(\neg{f}\)~is integrable, so \(f\)~is integrable. The rest of the proof uses Descartes' trick of rewriting an equation of form \(a-b=c-d\) in the form \(a+d=b+c\) to eliminate negative quantities.
 \end{rmk}
 
 % References
